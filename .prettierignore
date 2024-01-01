@@ -1,0 +1,10 @@
+# Folders where we don't have our source code
+/.git/
+/.nyc_output/
+/.vscode/
+/archive/
+/coverage/
+/debug/
+/dist/
+/node_modules/
+/pnpm-lock.yaml

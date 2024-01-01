@@ -1,0 +1,63 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "organizeImports": {
+    "enabled": false
+  },
+  "formatter": {
+    "indentStyle": "space",
+    "lineWidth": 120
+  },
+  "files": {
+    "ignore": ["archive/", "coverage/", "debug/", "dist/"]
+  },
+  "linter": {
+    "rules": {
+      "suspicious": {
+        "noExplicitAny": "off",
+        "noRedundantUseStrict": "off",
+        "noAssignInExpressions": "off",
+        "noEmptyInterface": "off",
+        "noPrototypeBuiltins": "off",
+        "noUnsafeDeclarationMerging": "off",
+        "noGlobalIsNan": "off",
+        "useIsArray": "off",
+        "noConfusingVoidType": "off",
+        "noRedeclare": "off",
+        "noGlobalIsFinite": "off"
+      },
+      "complexity": {
+        "useOptionalChain": "off",
+        "useSimplifiedLogicExpression": "off",
+        "noUselessConstructor": "off",
+        "useLiteralKeys": "off",
+        "noStaticOnlyClass": "off",
+        "noBannedTypes": "off",
+        "noUselessThisAlias": "off",
+        "noForEach": "off"
+      },
+      "performance": {
+        "noDelete": "off",
+        "noAccumulatingSpread": "off"
+      },
+      "correctness": {
+        "noUnusedVariables": "off",
+        "noSwitchDeclarations": "off",
+        "noUnsafeOptionalChaining": "off"
+      },
+      "style": {
+        "noParameterAssign": "off",
+        "noInferrableTypes": "off",
+        "noNonNullAssertion": "off",
+        "useDefaultParameterLast": "off",
+        "useEnumInitializers": "off",
+        "useExponentiationOperator": "off",
+        "useTemplate": "off"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  }
+}

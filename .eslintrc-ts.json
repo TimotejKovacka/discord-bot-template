@@ -1,0 +1,26 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "@typescript-eslint/indent": ["off", 2],
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true
+      }
+    ],
+    "@typescript-eslint/quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "@typescript-eslint/semi": ["error", "always"],
+    "@typescript-eslint/triple-slash-reference": "error",
+    "no-invalid-this": "off",
+    "@typescript-eslint/no-invalid-this": "error"
+  }
+}

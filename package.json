@@ -1,0 +1,29 @@
+{
+  "name": "discord-bot-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "eslint": "eslint",
+    "eslint:fix": "eslint --fix",
+    "format:biome": "biome format .",
+    "format:prettier": "prettier --check '**/*.md' '**/*.yaml'",
+    "format": "pnpm run \"/^format:(?!fix)/\"",
+    "format:fix:biome": "biome format --write .",
+    "format:fix:prettier": "prettier --write '**/*.md' '**/*.yaml'",
+    "format:fix": "pnpm run \"/^format:fix:/\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@biomejs/biome": "^1.4.1",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "ignorePatterns": ["/debug/", "/dist/", "/docs/"],
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "ecmaVersion": 2021
+  },
+  "rules": {
+    // Rules that are shared by JavaScript and TypeScript.
+    "arrow-parens": ["error", "always"],
+    "eol-last": "error",
+    "eqeqeq": ["error", "smart"],
+    "id-denylist": [
+      "error",
+      "any",
+      "Number",
+      "number",
+      "String",
+      "string",
+      "Boolean",
+      "boolean",
+      "Undefined",
+      "undefined"
+    ],
+    "id-match": "error",
+    "new-parens": "error",
+    "no-cond-assign": "error",
+    "no-eval": "error",
+    "no-fallthrough": "error",
+    "no-invalid-this": "warn",
+    "no-new-wrappers": "error",
+    "no-redeclare": "error",
+    "no-restricted-exports": ["error", { "restrictDefaultExports": { "direct": true } }],
+    "no-throw-literal": "error",
+    "no-underscore-dangle": "off",
+    "no-unsafe-finally": "error",
+    "no-unused-expressions": "error",
+    "no-var": "error",
+    "prefer-const": "error"
+  },
+  "overrides": [
+    {
+      // TypeScript specific rules
+      "files": ["**/*.ts"],
+      "excludedFiles": ["test/**/*.ts"],
+      "extends": ".eslintrc-ts.json"
+    },
+    {
+      // Test Suite specific overrides
+      "files": ["test/**/*.ts"],
+      "extends": ".eslintrc-ts.json",
+      "parserOptions": {
+        "project": "test/tsconfig.json"
+      },
+      "rules": {
+        "@typescript-eslint/no-unused-expressions": "off",
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
+}
