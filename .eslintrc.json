@@ -12,6 +12,7 @@
     "project": "tsconfig.json",
     "ecmaVersion": 2021
   },
+  "plugins": ["import"],
   "rules": {
     // Rules that are shared by JavaScript and TypeScript.
     "arrow-parens": ["error", "always"],
@@ -37,13 +38,34 @@
     "no-invalid-this": "warn",
     "no-new-wrappers": "error",
     "no-redeclare": "error",
-    "no-restricted-exports": ["error", { "restrictDefaultExports": { "direct": true } }],
+    // "no-restricted-exports": ["error", { "restrictDefaultExports": { "direct": true } }],
     "no-throw-literal": "error",
     "no-underscore-dangle": "off",
     "no-unsafe-finally": "error",
     "no-unused-expressions": "error",
     "no-var": "error",
-    "prefer-const": "error"
+    "prefer-const": "error",
+
+    // Rules that are for imports.
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "./**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
   },
   "overrides": [
     {
