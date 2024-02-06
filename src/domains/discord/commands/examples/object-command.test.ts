@@ -1,13 +1,13 @@
-import { ChatInputCommandInteraction } from 'discord.js';
-import testedCommand, { COMMAND_RESPONSE } from '../../../src/commands/examples/class-command';
+import {ChatInputCommandInteraction} from 'discord.js';
+import testedCommand, {COMMAND_RESPONSE} from './object-command';
 
-describe('Class Command', () => {
+describe('Object Command', () => {
   const command = testedCommand;
   let interaction: ChatInputCommandInteraction;
 
   beforeEach(() => {
     interaction = {
-      reply: jest.fn(),
+      reply: jest.fn()
     } as unknown as ChatInputCommandInteraction;
   });
 

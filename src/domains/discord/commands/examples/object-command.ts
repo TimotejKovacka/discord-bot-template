@@ -2,7 +2,7 @@ import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js';
 
 import { ICommand } from '..';
 
-const COMMAND_NAME = 'command-name';
+const COMMAND_NAME = 'object-command-name';
 const COMMAND_DESCRIPTION = 'Command description';
 export const COMMAND_RESPONSE = 'Object command response';
 
