@@ -1,19 +1,17 @@
 import fs from 'fs';
 import path from 'path';
 
-import { Logger } from './logger';
+import {Loadable} from './interfaces';
 
-export interface Loadable {
-  execute: Function;
-}
+import {Logger} from '../logging';
 
 export class BaseLoader {
   protected static async loadDirectory<T extends Loadable>(
     dir: string,
     fileName: string,
-    defaultLogger?: Logger,
+    defaultLogger?: Logger
   ): Promise<T[]> {
-    const files = fs.readdirSync(dir, { withFileTypes: true });
+    const files = fs.readdirSync(dir, {withFileTypes: true});
     const logger = defaultLogger ?? console;
     let loadables: T[] = [];
 
@@ -21,7 +19,10 @@ export class BaseLoader {
       const res = path.resolve(dir, file.name);
       if (file.isDirectory()) {
         loadables = [...loadables, ...(await this.loadDirectory<T>(res, fileName, logger))];
-      } else if (file.name.endsWith('.js') && res !== fileName) {
+      } else if (
+        (file.name.endsWith('.js') || (file.name.endsWith('.ts') && !file.name.includes('.test'))) &&
+        res !== fileName
+      ) {
         const loadable = await this.load<T>(res, logger);
         if (loadable) {
           loadables.push(loadable);
@@ -52,13 +53,5 @@ export class BaseLoader {
 
   protected static isValid<T extends Loadable>(object: any): object is T {
     return 'execute' in object && typeof object.execute === 'function';
-  }
-}
-
-export class LoadError extends Error {
-  readonly name = 'LoadError';
-
-  constructor(message?: string) {
-    super(message ?? 'Failed to load object');
   }
 }

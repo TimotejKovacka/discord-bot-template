@@ -1,7 +1,7 @@
 import { ClientEvents } from 'discord.js';
 
-import { BaseLoader } from '../loader';
-import { Logger } from '../logger';
+import { BaseLoader } from '../../../lib/loader';
+import { Logger } from '../../../lib/logging';
 
 export type ClientEvent<EventName extends keyof ClientEvents = keyof ClientEvents> = {
   name: EventName;

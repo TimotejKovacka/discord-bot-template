@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "strict": true,
+    "baseUrl": "./",
     "outDir": "./dist",
     "rootDir": "./src",
     "module": "commonjs",
@@ -8,28 +9,16 @@
     "target": "ES2021",
     "lib": ["ES2021", "DOM"],
     "types": ["node", "jest"],
-    "composite": true,
-    "declaration": true,
-    "sourceMap": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "alwaysStrict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": false,
-    "noImplicitReturns": true,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
   },
-  "compileOnSave": true,
   "include": [
-    "src/**/*",
+    "src/**/*"
   ],
   "exclude": [
-    "node_modules",  // Commonly excluded to avoid compiling third-party modules
-    "dist"  // Exclude the output directory
-  ],
+    "node_modules",
+    "dist"
+  ]
 }

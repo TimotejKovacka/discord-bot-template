@@ -1,22 +1,20 @@
 import { GatewayIntentBits } from 'discord.js';
 
-import { DiscordClient } from './discord-client/discord-client';
-import { BaseLogger } from './logger';
-import { botConfig } from './utils/bot-config';
+import { DiscordClient } from './lib/discord-client';
+import { BaseLogger } from './lib/logging';
+import { botConfig } from './lib/utils/bot-config';
 
 const config = botConfig();
 const logger = new BaseLogger();
-const client = new DiscordClient(
-  {
-    botToken: config.token,
-    botIntents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions],
-  },
+const client = new DiscordClient({
+  ...config,
+  botIntents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions],
   logger,
-);
+});
 
 async function main() {
   try {
-    await client.init({});
+    await client.init();
     await client.start();
   } catch (error) {
     console.error(error);

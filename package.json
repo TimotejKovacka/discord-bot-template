@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "mkdir dist & tsc",
     "start": "node dist/index.js",
+    "deploy-commands": "node dist/deploy.js",
     "test": "jest",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",

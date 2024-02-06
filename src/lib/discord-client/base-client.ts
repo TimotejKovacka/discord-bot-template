@@ -1,9 +1,9 @@
 import { Client, ClientOptions, Collection } from 'discord.js';
 
-import { CommandLoader, ICommand } from '../commands';
-import { ClientEvent, EventLoader } from '../events';
+import { CommandLoader, ICommand } from '../../domains/discord/commands';
+import { ClientEvent, EventLoader } from '../../domains/discord/events';
 import { LoadError } from '../loader';
-import { Logger } from '../logger';
+import { Logger } from '../logging';
 
 export type BaseClientOptions = ClientOptions & {
   logger?: Logger;
